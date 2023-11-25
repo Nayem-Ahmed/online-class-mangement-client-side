@@ -8,7 +8,7 @@ import './Teacher.css'
 const Teachers = () => {
     return (
         <div>
-            <div className='max-w-lg mx-auto text-center'>
+            <div className='max-w-lg mx-auto mt-16 text-center'>
                 <h1 className='md:text-2xl font-semibold mb-3'>Classes Taught by Real Creators</h1>
                 <p className='text-gray-500'>Online education is a flexible instructional delivery system that encompasses any kind of learning that takes place via the Internet.</p>
             </div>
