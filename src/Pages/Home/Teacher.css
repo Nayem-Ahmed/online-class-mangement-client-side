@@ -1,0 +1,22 @@
+.teacher-card {
+    position: relative;
+  }
+  
+  .teacher-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(99, 121, 223, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+  }
+  
+  .teacher-card:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  
