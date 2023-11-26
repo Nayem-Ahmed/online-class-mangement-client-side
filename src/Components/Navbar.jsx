@@ -54,8 +54,8 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52">
 
-                        {user?.email ? <li><a>{user?.displayName}</a></li> : null}
-                        <li><a>Dashboard</a></li>
+                        {user?.email ? <li className='mb-3 font-semibold'>{user?.displayName}</li> : null}
+                       <Link className='mb-3' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link>
                         <button onClick={logOut}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                             type="submit"

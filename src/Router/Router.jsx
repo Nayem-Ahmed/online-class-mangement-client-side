@@ -5,6 +5,9 @@ import Home from "../Pages/Home/Home";
 import Signin from "../Components/Signin";
 import SignUp from "../Components/SignUp";
 import Tech from "../Pages/Home/Tech";
+import StudentDashboard from "../Layout/Dashboard/StudentDashboard/StudentDashboard";
+import AddClass from "../Layout/Dashboard/StudentDashboard/AddClass";
+import Myclass from "../Layout/Dashboard/StudentDashboard/Myclass";
 
 const router = createBrowserRouter([
     {
@@ -30,5 +33,21 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path:'/dashboard',
+        element:<StudentDashboard></StudentDashboard>,
+        children:[
+            {
+                path:'/dashboard/addclass',
+                element:<AddClass></AddClass>,
+
+            },
+            {
+                path:'/dashboard/myclass',
+                element:<Myclass></Myclass>,
+
+            },
+        ]
+    }
 ])
 export default router;
