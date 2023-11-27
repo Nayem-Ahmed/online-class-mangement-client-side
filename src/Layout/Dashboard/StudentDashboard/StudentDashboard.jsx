@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { MdCastForEducation ,MdSpaceDashboard} from "react-icons/md";
+import { GoHome } from "react-icons/go";
+
  
 //ata dashboard sobar jonno
 
@@ -20,7 +22,8 @@ const StudentDashboard = () => {
            <li className='md:mb-6'><NavLink to='/dashboard/'>All classes</NavLink></li>
            <li className='md:mb-6'><NavLink to='/dashboard/addclass'>Add class</NavLink></li>
            <li className='md:mb-6'><NavLink to='/dashboard/myclass'>My class</NavLink></li>
-           <li><NavLink to='/dashboard/'>Profile</NavLink></li>
+           <li  className='md:mb-6'><NavLink to='/dashboard/'>Profile</NavLink></li>
+           <li ><NavLink to='/' className={'flex items-center gap-2 text-xl'}><GoHome></GoHome>Go Home</NavLink></li>
 
            </ul>
         

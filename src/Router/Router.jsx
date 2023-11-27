@@ -8,6 +8,7 @@ import Tech from "../Pages/Home/Tech";
 import StudentDashboard from "../Layout/Dashboard/StudentDashboard/StudentDashboard";
 import AddClass from "../Layout/Dashboard/StudentDashboard/AddClass";
 import Myclass from "../Layout/Dashboard/StudentDashboard/Myclass";
+import AllClass from "../Components/AllClass";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path:"/tech",
                 element: <Tech></Tech>,
+            },
+            {
+                path:"/classes",
+                element: <AllClass></AllClass>,
             },
             {
                 path:"/signin",
