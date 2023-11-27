@@ -9,25 +9,31 @@ const imgbb_hostingapi = `https://api.imgbb.com/1/upload?key=${imgbb_hosting}`;
 
 const AddClass = () => {
     const navigate = useNavigate();
-    const { register, handleSubmit , formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
         try {
+            // Upload image to ImgBB
+            const imgData = new FormData();
+            imgData.append('image', data.image[0]);
+            const imgResponse = await axios.post(imgbb_hostingapi, imgData);
 
-            // const imgUploadResponse = await axios.post(imgbb_hostingapi, formDataObj, {
-            //     headers: {
-            //         'content-type': 'multipart/form-data',
-            //     },
-            // });
+            // Check if image upload was successful
+            if (imgResponse.data && imgResponse.data.data) {
+                // Add the image URL to the class data
+                data.image = imgResponse.data.data.url;
 
+                // Send class data to your server
+                const response = await axios.post('http://localhost:5000/addclass', data);
 
-
-            const response = await axios.post('http://localhost:5000/addclass', data);
-            if (response.data) {
-                Swal.fire('Class added successfully');
-                navigate('/dashboard/myclass');
+                if (response.data) {
+                    Swal.fire('Class added successfully');
+                    navigate('/dashboard/myclass');
+                } else {
+                    console.error('Class addition failed');
+                }
             } else {
-                console.error('Class addition failed');
+                console.error('Image upload failed');
             }
         } catch (error) {
             console.error('Error adding class:', error);
