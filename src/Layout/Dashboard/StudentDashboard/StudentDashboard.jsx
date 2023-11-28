@@ -17,8 +17,8 @@ const StudentDashboard = () => {
 
            <ul>
            <li className='md:mb-6'><NavLink to='/dashboard/'>My enroll class</NavLink></li>
-           <li className='md:mb-6'><NavLink to='/dashboard/'>Teacher Request</NavLink></li>
-           <li className='md:mb-6'><NavLink to='/dashboard/'>Users</NavLink></li>
+           <li className='md:mb-6'><NavLink to='/dashboard/teacherrequest'>Teacher Request</NavLink></li>
+           <li className='md:mb-6'><NavLink to='/dashboard/user'>Users</NavLink></li>
            <li className='md:mb-6'><NavLink to='/dashboard/'>All classes</NavLink></li>
            <li className='md:mb-6'><NavLink to='/dashboard/addclass'>Add class</NavLink></li>
            <li className='md:mb-6'><NavLink to='/dashboard/myclass'>My class</NavLink></li>

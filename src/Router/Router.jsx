@@ -11,6 +11,8 @@ import Myclass from "../Layout/Dashboard/StudentDashboard/Myclass";
 import AllClass from "../Components/AllClass";
 import ClassDetails from "../Components/ClassDetails";
 import Privetroute from "./Privetroute";
+import TeacherRequest from "../Layout/Dashboard/StudentDashboard/TeacherRequest";
+import User from "../Layout/Dashboard/StudentDashboard/User";
 
 
 const router = createBrowserRouter([
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<StudentDashboard></StudentDashboard>,
+        element:<Privetroute><StudentDashboard></StudentDashboard></Privetroute>,
         children:[
             {
                 path:'/dashboard/addclass',
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/myclass',
                 element:<Myclass></Myclass>,
+
+            },
+            {
+                path:'/dashboard/user',
+                element:<User></User>,
+
+            },
+            {
+                path:'/dashboard/teacherrequest',
+                element:<TeacherRequest></TeacherRequest>,
 
             },
         ]
