@@ -9,6 +9,9 @@ import StudentDashboard from "../Layout/Dashboard/StudentDashboard/StudentDashbo
 import AddClass from "../Layout/Dashboard/StudentDashboard/AddClass";
 import Myclass from "../Layout/Dashboard/StudentDashboard/Myclass";
 import AllClass from "../Components/AllClass";
+import ClassDetails from "../Components/ClassDetails";
+import Privetroute from "./Privetroute";
+
 
 const router = createBrowserRouter([
     {
@@ -22,11 +25,16 @@ const router = createBrowserRouter([
             },
             {
                 path:"/tech",
-                element: <Tech></Tech>,
+                element:<Privetroute><Tech></Tech></Privetroute>,
             },
             {
                 path:"/classes",
                 element: <AllClass></AllClass>,
+            },
+            {
+                path:"/classes/:id",
+                loader: ({ params}) => fetch(`http://localhost:5000/addclass/${params.id}`),
+                element: <ClassDetails></ClassDetails>,
             },
             {
                 path:"/signin",
