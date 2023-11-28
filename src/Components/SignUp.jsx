@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
+import axios from 'axios';
 
 const SignUp = () => {
     const { handleSubmit, control, errors } = useForm();
@@ -31,27 +32,47 @@ const SignUp = () => {
         }
         signupUser(data.email, data.password)
             .then((result) => {
-                console.log(result.user);
-                toast("Create User Successful");
-                navigate(location?.state ? location.state : '/');
-
-                updateProfile(result.user, {
+                  updateProfile(result.user, {
                     photoURL: data.image,
                     displayName: data.name,
-                });
+                }); 
+                toast("Create User Successful");
+                navigate(location?.state ? location.state : '/');  
+                
+                // user information send database
+                const userInfo = {
+                    name : data.name,
+                    image : data.image,
+                    email : data.email,
+                }
 
+                axios.post('http://localhost:5000/users',userInfo)
+                .then(result=>{  
+                    console.log(result.data);                     
+                                       
+                })
             })
             .catch((error) => {
-                console.error(error);
+                 toast(error.message)
                 setRegistererror(error.message)
 
             });
-
-        console.log(data);
     };
     const googlelogin = () => {
         signingoogle()
             .then((result) => {
+                const userInfo = {
+                    name :  result.user?.displayName ,
+                    image : result.user?.photoURL ,
+                    email : result.user?.email ,
+                }
+                axios.post('http://localhost:5000/users',userInfo)
+                .then(result=>{  
+                    toast("Create User Successful");
+                    navigate(location?.state ? location.state : '/');  
+                    console.log(result.data);                     
+                                       
+                })
                 console.log(result.user)
             })
             .catch((error) => {
