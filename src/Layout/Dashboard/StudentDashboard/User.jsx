@@ -1,56 +1,54 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../Provider/AuthProvider';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const User = () => {
-    const {user} = useContext(AuthContext);
-    console.log(user);
+    const [users, setUsers] = useState([]);
+    console.log(users);
+
+    useEffect(() => {
+
+        axios.get('http://localhost:5000/users')
+            .then(response => {
+                setUsers(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching users:', error);
+            });
+    }, []); 
+
     return (
         <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>User name</th>
-              <th>User Email</th>
-              <th>User Image</th>
-              <th>Make admin</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {/* {user.map((teacher) => (
-              <tr key={user._id}>
-                <td>
-                  <div className="flex items-center gap-3">
-                    </div>
-                    <div>
-                  </div>
-                </td>
-                <td>{}</td>
-                <td>{}</td>          
-                <td>{}</td>
-                <td>
-                  
-                      <button
-                        className="btn btn-success btn-xs"
-                        onClick={() => handleApprove(teacher._id)}
-                      >
-                        Make Admin
-                      </button>
-                      </td>
-
-                </tr>
-                
-                
-                ))} */}
-                {
-                    user?.displayName
-                    
-                }
-                 
-          </tbody>
-        </table>
-      </div>
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>User name</th>
+                        <th>User Email</th>
+                        <th>User Image</th>
+                        <th>Make admin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map(user => (
+                        <tr key={user._id}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>
+                                <img className='w-24' src={user.image} alt={`Avatar of ${user.name}`} />
+                            </td>
+                            <td>
+                                <button
+                                    className="btn btn-success btn-xs"
+                                    onClick={() => handleMakeAdmin(user._id)}
+                                >
+                                    Make Admin
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
