@@ -1,32 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const User = () => {
-    const [users, setUsers] = useState([]);
-    console.log(users);
+    // use transtack data fetch
+    const axiosSecure = useAxiosSecure();
+    const {  data: users = [] , refetch} = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users')
+            return res.data;
 
-    useEffect(() => {
+        }
+          
+      })
+   // useEffect data fetch
 
-        axios.get('http://localhost:5000/users')
-            .then(response => {
-                setUsers(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching users:', error);
-            });
-    }, []); 
+    // useEffect(() => {
+
+    //     axios.get('http://localhost:5000/users')
+    //         .then(response => {
+    //             setUsers(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching users:', error);
+    //         });
+    // }, []); 
 
     
+    
     const handleMakeAdmin = async (id) => {
-        try {
-            const response = await axios.patch(`http://localhost:5000/users/admin/${id}`);
-            Swal.fire("Make a Admin");
+        axiosSecure.patch(`/users/admin/${id}`)
+        .then(res=>{
+            if (res.data.modifiedCount > 0) {
+                refetch()
+                Swal.fire("Make a Admin");
+                
+            }
+        })
 
-            console.log(response.data);
-            
-        } catch (error) {
-            console.error("Error making user admin:", error);
-        }
     };
     
 
@@ -67,3 +81,6 @@ const User = () => {
 };
 
 export default User;
+
+
+
