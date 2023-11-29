@@ -28,7 +28,7 @@ const StudentDashboard = () => {
 
     return (
         <div className="max-w-screen-xl  mx-auto flex">
-           <div className='md:w-64 bg-blue-600 h-screen text-white p-6'>
+           <div className='md:w-64 bg-blue-600 min-h-screen text-white p-6'>
            <MdCastForEducation className='md:text-6xl text-center mx-auto text-white'></MdCastForEducation>
            <div className='flex items-center gap-4 mt-5 '><MdSpaceDashboard className='md:text-2xl'></MdSpaceDashboard>  <p className='md:font-semibold'> Dashboard</p></div>
            <div className="divider"></div>

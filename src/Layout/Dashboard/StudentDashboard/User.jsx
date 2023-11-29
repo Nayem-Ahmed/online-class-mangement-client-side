@@ -16,6 +16,20 @@ const User = () => {
             });
     }, []); 
 
+    
+    const handleMakeAdmin = async (id) => {
+        try {
+            const response = await axios.patch(`http://localhost:5000/users/admin/${id}`);
+            Swal.fire("Make a Admin");
+
+            console.log(response.data);
+            
+        } catch (error) {
+            console.error("Error making user admin:", error);
+        }
+    };
+    
+
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -37,12 +51,12 @@ const User = () => {
                                 <img className='w-24' src={user.image} alt={`Avatar of ${user.name}`} />
                             </td>
                             <td>
-                                <button
+                               {user.role === 'admin'? "Admin" : <button
                                     className="btn btn-success btn-xs"
                                     onClick={() => handleMakeAdmin(user._id)}
                                 >
                                     Make Admin
-                                </button>
+                                </button>}
                             </td>
                         </tr>
                     ))}
