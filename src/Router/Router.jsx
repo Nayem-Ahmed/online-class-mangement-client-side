@@ -13,6 +13,7 @@ import ClassDetails from "../Components/ClassDetails";
 import Privetroute from "./Privetroute";
 import TeacherRequest from "../Layout/Dashboard/StudentDashboard/TeacherRequest";
 import User from "../Layout/Dashboard/StudentDashboard/User";
+import Profile from "../Layout/Dashboard/StudentDashboard/Profile";
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/teacherrequest',
                 element:<TeacherRequest></TeacherRequest>,
+
+            },
+            {
+                path:'/dashboard/profile',
+                element: <Profile></Profile>,
 
             },
         ]

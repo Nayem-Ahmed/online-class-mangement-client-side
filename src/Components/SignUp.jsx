@@ -44,6 +44,7 @@ const SignUp = () => {
                     name : data.name,
                     image : data.image,
                     email : data.email,
+                    role : 'student',
                 }
 
                 axios.post('http://localhost:5000/users',userInfo)
