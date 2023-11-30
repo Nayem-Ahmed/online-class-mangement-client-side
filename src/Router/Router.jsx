@@ -15,6 +15,7 @@ import TeacherRequest from "../Layout/Dashboard/StudentDashboard/TeacherRequest"
 import User from "../Layout/Dashboard/StudentDashboard/User";
 import Profile from "../Layout/Dashboard/StudentDashboard/Profile";
 import UpdateClass from "../Layout/Dashboard/StudentDashboard/UpdateClass";
+import Payment from "../Components/Payment";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:"/signup",
                 element: <SignUp></SignUp>,
+            },
+            {
+                path:"/payment",
+                element: <Payment></Payment>,
             },
         ]
     },
