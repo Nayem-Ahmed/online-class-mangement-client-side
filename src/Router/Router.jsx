@@ -14,6 +14,7 @@ import Privetroute from "./Privetroute";
 import TeacherRequest from "../Layout/Dashboard/StudentDashboard/TeacherRequest";
 import User from "../Layout/Dashboard/StudentDashboard/User";
 import Profile from "../Layout/Dashboard/StudentDashboard/Profile";
+import UpdateClass from "../Layout/Dashboard/StudentDashboard/UpdateClass";
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/myclass',
                 element:<Myclass></Myclass>,
+
+            },
+            {
+                path:'/dashboard/update/:idUpdate?',
+                loader: ({ params}) => fetch(`http://localhost:5000/addclass/${params.idUpdate}`),
+                element:<UpdateClass></UpdateClass>,
 
             },
             {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
@@ -7,8 +8,7 @@ const Myclass = () => {
     const [teacherClasses, setTeacherClasses] = useState([]);
 
     const handleDelete = (id) => {
-        // Implement logic to delete the class with the given ID
-        // This might involve a confirmation dialog and an API call to delete the class
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -37,14 +37,12 @@ const Myclass = () => {
 
     };
 
-    const handleUpdate = (classId) => {
-        // Implement logic to update the class with the given ID
-        // This might involve showing a modal with a form to update class details
+    const handleUpdate = (id) => {
+         
+        console.log(id);
     };
 
-    const handleSeeDetails = (classId) => {
-        // Implement logic to redirect to the class details page with the given ID
-        // This might involve using React Router to navigate to the correct route
+    const handleSeeDetails = (id) => {
     };
 
 
@@ -74,8 +72,8 @@ const Myclass = () => {
                             <p>Price: ${classItem.price}</p>
                             <p>Description: {classItem.description}</p>
                             <p className='font-semibold'>Status:{classItem.status} pending</p>
-                            <div className="card-actions  ">
-                                <button className='btn btn-sm bg-blue-500 text-white' onClick={() => handleUpdate(classItem._id)}>Update</button>
+                            <div className="card-actions">
+                                <Link to={`/dashboard/update/${classItem._id}`}><button className='btn btn-sm bg-blue-500 text-white' onClick={() => handleUpdate(classItem._id)}>Update</button></Link>
                                 <button className='btn btn-sm bg-blue-500 text-white' onClick={() => handleDelete(classItem._id)}>Delete</button>
                                 <button className='btn btn-sm bg-blue-500 text-white' onClick={() => handleSeeDetails(classItem._id)} disabled={classItem.status !== 'approved'}>
                                     See Details
