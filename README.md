@@ -3,72 +3,53 @@ live link : https://bisy-cd75d.web.app/
 
 student and class management
 
-## Features
+ ## Features
 
-### 1. Responsive Design
+1. **Responsive Design**: Ensure a seamless user experience across different devices.
 
-Describe how the project ensures a seamless experience across different devices.
+2. **Tooltip Implementation**: Integrated tooltips where necessary for user guidance.
 
-### 2. Tooltip Implementation
+3. **Navbar**:
+   - Logo + website name
+   - Home, All Classes, Teach on [your website name], Sign In/Profile (conditional)
 
-Explain where and how tooltips are used in the project for user guidance.
+4. **Homepage**:
+   - Banner section with relevant images/carousel
+   - Highlight partners or collaborators
+   - Featured and recommended classes section
+   - Feedback carousel with user testimonials
+   - Total users, total classes, total student enrollment display
 
-### 3. Navbar
+5. **All Classes Page**:
+   - Display approved classes from the teacher dashboard
+   - Class card with title, instructor, price, short description, total enrollment, and enroll button
 
-Detail the contents and functionality of the website's navbar.
+6. **Class Details Page (Private Route)**:
+   - Detailed information about a class
+   - Enroll button leading to the payment page
+   - Teacher feedback section
 
-### 4. Homepage
+7. **Teach on [Your Website Name] (Private Route)**:
+   - Teacher application form with fields like name, images, experience, title, category
+   - Submit for review button
+   - Conditional display based on admin approval
 
-Highlight the key sections and content on the homepage.
+8. **Student Dashboard (Private Route)**:
+   - My Enroll Class section with class cards
+   - Profile section
 
-### 5. All Classes Page
+9. **Admin Dashboard (Private Route)**:
+   - Teacher Request page for managing teacher requests
+   - Users page for managing all users
+   - All Classes page for managing class approvals
+   - Profile section
 
-Explain how classes are displayed and what information is presented on this page.
+10. **Teacher Dashboard (Private Route)**:
+    - Add Class page to create new classes
+    - My Class page to manage created classes
+    - Profile section
 
-### 6. Class Details Page (Private Route)
-
-Describe the information and functionalities available on the class details page.
-
-### 7. Teach on [Your Website Name] (Private Route)
-
-Outline the process for teachers to apply and submit their details.
-
-### 8. Student Dashboard (Private Route)
-
-Explain the routes and features available on the student dashboard.
-
-### 9. Admin Dashboard (Private Route)
-
-Detail the admin-specific dashboard and its functionalities.
-
-### 10. Teacher Dashboard (Private Route)
-
-Describe the dashboard for teachers, including adding and managing classes.
-
-### 11. Login & Registration Systems
-
-Explain the login and registration processes, including social sign-in.
-
-### 12. Bonus Tasks
-
-Highlight any additional functionalities implemented as bonus tasks.
-
-### 13. Optional Tasks (Choose Two)
-
-Discuss two optional tasks chosen from the list and their implementations.
-
-## How to Use
-
-Provide instructions on how users can navigate and use the various features of the platform.
-
-## Installation
-
-Guide users through the installation process, including dependencies and prerequisites.
-
-## Technologies Used
-
-List the technologies, frameworks, and libraries used in the project.
-
-## Contributions
-
-Explain how others can contribute to the project, submit issues, or make pull requests.
+11. **Login & Registration Systems**:
+    - User-friendly login and registration pages
+    - Social sign-in options
+    - No email verification for simplicity
