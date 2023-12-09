@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
@@ -16,21 +15,7 @@ const User = () => {
         }
           
       })
-   // useEffect data fetch
-
-    // useEffect(() => {
-
-    //     axios.get('http://localhost:5000/users')
-    //         .then(response => {
-    //             setUsers(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching users:', error);
-    //         });
-    // }, []); 
-
-    
-    
+ 
     const handleMakeAdmin = async (id) => {
         axiosSecure.patch(`/users/admin/${id}`)
         .then(res=>{

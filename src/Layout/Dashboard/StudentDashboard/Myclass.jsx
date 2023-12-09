@@ -48,7 +48,7 @@ const Myclass = () => {
 
     // Data Fetch  
     useEffect(() => {
-        axios.get('http://localhost:5000/addclass')
+        axios.get('/addclass')
             .then(response => {
                 console.log('Data:', response.data);
                 setTeacherClasses(response.data);

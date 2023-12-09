@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import logo from '../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import Headroom from 'react-headroom';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const Navbar = () => {
 
     </>
     return (
+        <Headroom>
         <div className="navbar  bg-blue-400">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -66,6 +68,7 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
+ </Headroom>
     );
 };
 
