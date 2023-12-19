@@ -23,7 +23,7 @@ const Tech = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
-    axios.post('http://localhost:5000/tech', formData)
+    axios.post('https://online-class-server.vercel.app/tech', formData)
       .then((response) => {
         if (response.data) {
           Swal.fire("Submission successful!");

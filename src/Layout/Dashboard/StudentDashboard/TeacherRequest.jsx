@@ -5,7 +5,7 @@ const TeacherRequest = () => {
   const [teacherRequests, setTeacherRequests] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tech')
+    axios.get('https://online-class-server.vercel.app/tech')
       .then(res => {
         setTeacherRequests(res.data);
       })

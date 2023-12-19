@@ -19,7 +19,7 @@ const Myclass = () => {
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await axios.delete(`http://localhost:5000/addclass/${id}`)
+                const res = await axios.delete(`https://online-class-server.vercel.app/addclass/${id}`)
                 console.log(res);
                 if (res.data.deletedCount > 0) {
                     setTeacherClasses((prevClasses) => prevClasses.filter(classItem => classItem._id !== id));

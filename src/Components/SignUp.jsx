@@ -47,7 +47,7 @@ const SignUp = () => {
                     role : 'student',
                 }
 
-                axios.post('http://localhost:5000/users',userInfo)
+                axios.post('https://online-class-server-jo6iw2q0g-plays-projects.vercel.app/users',userInfo)
                 .then(result=>{  
                     console.log(result.data);                     
                                        
@@ -67,7 +67,7 @@ const SignUp = () => {
                     image : result.user?.photoURL ,
                     email : result.user?.email ,
                 }
-                axios.post('http://localhost:5000/users',userInfo)
+                axios.post('https://online-class-server-jo6iw2q0g-plays-projects.vercel.app/users',userInfo)
                 .then(result=>{  
                     toast("Create User Successful");
                     navigate(location?.state ? location.state : '/');  

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/classes/:id",
-                loader: ({ params}) => fetch(`http://localhost:5000/addclass/${params.id}`),
+                loader: ({ params}) => fetch(`https://online-class-server.vercel.app/addclass/${params.id}`),
                 element: <ClassDetails></ClassDetails>,
             },
             {
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/update/:idUpdate?',
-                loader: ({ params}) => fetch(`http://localhost:5000/addclass/${params.idUpdate}`),
+                loader: ({ params}) => fetch(`https://online-class-server.vercel.app/addclass/${params.idUpdate}`),
                 element:<UpdateClass></UpdateClass>,
 
             },
