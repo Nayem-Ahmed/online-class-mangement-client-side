@@ -1,16 +1,31 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Tech = () => {
   const { user } = useContext(AuthContext);
+  const [userss, setUserss] = useState(null);
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/users/${user?.email}`)
+      .then(result => {
+        console.log(result.data.role);
+        setUserss(result.data.role);
+
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
+
+  }, [])
   const [formData, setFormData] = useState({
     name: '',
     experience: 'beginner',
     title: '',
     category: '',
     Images: user?.photoURL,
+    status: 'pending',
   });
 
   const handleChange = (e) => {
@@ -23,7 +38,7 @@ const Tech = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
-    axios.post('https://online-class-server.vercel.app/tech', formData)
+    axios.post('http://localhost:5000/tech', formData)
       .then((response) => {
         if (response.data) {
           Swal.fire("Submission successful!");
@@ -41,6 +56,7 @@ const Tech = () => {
       experience: 'beginner',
       title: '',
       category: '',
+
     });
   };
 
@@ -55,7 +71,7 @@ const Tech = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            className="mt-1 p-2 w-full shadow-md bg-gray-50 rounded-md"
             required
           />
         </div>
@@ -67,7 +83,7 @@ const Tech = () => {
             name="experience"
             value={formData.experience}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            className="mt-1 p-2 w-full shadow-md bg-gray-50  rounded-md"
           >
             <option value="beginner">Beginner</option>
             <option value="experienced">Experienced</option>
@@ -84,7 +100,7 @@ const Tech = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            className="mt-1 p-2 w-full shadow-md bg-gray-50  rounded-md"
             required
           />
         </div>
@@ -95,7 +111,7 @@ const Tech = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            className="mt-1 p-2 w-full shadow-md bg-gray-50  rounded-md"
           >
             <option value="webDevelopment">Web Development</option>
             <option value="digitalMarketing">Digital Marketing</option>
@@ -106,12 +122,12 @@ const Tech = () => {
           </select>
         </div>
 
-        <button
+        {<button
           type="submit"
-          className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600"
         >
           Submit for Review
-        </button>
+        </button>}
       </form>
     </div>
   );

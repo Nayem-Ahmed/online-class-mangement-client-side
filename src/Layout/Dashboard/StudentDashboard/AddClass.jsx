@@ -24,7 +24,7 @@ const AddClass = () => {
                 data.image = imgResponse.data.data.url;
 
                 // Send class data to your server
-                const response = await axios.post('https://online-class-server.vercel.app/addclass', data);
+                const response = await axios.post('http://localhost:5000/addclass', data);
 
                 if (response.data) {
                     Swal.fire('Class added successfully');

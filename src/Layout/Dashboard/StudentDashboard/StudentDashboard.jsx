@@ -14,7 +14,7 @@ const StudentDashboard = () => {
     const [userss, setUserss] = useState(null);
 
     useEffect(()=>{
-        axios.get(`https://online-class-server.vercel.app/users/${user?.email}`)
+        axios.get(`http://localhost:5000/users/${user?.email}`)
         .then(result=>{ 
             console.log(result.data.role); 
              setUserss(result.data.role);                     

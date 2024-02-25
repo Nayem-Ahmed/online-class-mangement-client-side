@@ -19,7 +19,7 @@ const Myclass = () => {
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await axios.delete(`https://online-class-server.vercel.app/addclass/${id}`)
+                const res = await axios.delete(`http://localhost:5000/addclass/${id}`)
                 console.log(res);
                 if (res.data.deletedCount > 0) {
                     setTeacherClasses((prevClasses) => prevClasses.filter(classItem => classItem._id !== id));
@@ -48,7 +48,7 @@ const Myclass = () => {
 
     // Data Fetch  
     useEffect(() => {
-        axios.get('/addclass')
+        axios.get('http://localhost:5000/addclass')
             .then(response => {
                 console.log('Data:', response.data);
                 setTeacherClasses(response.data);
@@ -62,7 +62,7 @@ const Myclass = () => {
     return (
         <div>
             <div className='grid md:grid-cols-3 lg:grid-cols-3 gap-5'>
-                {teacherClasses.map((classItem) => (
+                {teacherClasses?.map((classItem) => (
                     <div key={classItem._id} className="card card-compact bg-base-100 shadow-xl">
                         <figure><img src={classItem.image} alt={classItem.title} /></figure>
                         <div className="card-body">

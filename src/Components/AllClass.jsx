@@ -6,9 +6,8 @@ const AllClass = () => {
     const [allclass, setAllclass] = useState([]);
     // Data Fetch  
     useEffect(() => {
-        axios.get('https://online-class-server.vercel.app/addclass')
+        axios.get('http://localhost:5000/addclass')
             .then(response => {
-                console.log('Data:', response.data);
                 setAllclass(response.data);
             })
             .catch(error => {

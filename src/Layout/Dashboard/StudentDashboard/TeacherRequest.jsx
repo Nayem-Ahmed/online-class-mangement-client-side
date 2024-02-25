@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const TeacherRequest = () => {
   const [teacherRequests, setTeacherRequests] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
-    axios.get('https://online-class-server.vercel.app/tech')
+    axios.get('http://localhost:5000/tech')
       .then(res => {
         setTeacherRequests(res.data);
       })
@@ -14,10 +18,12 @@ const TeacherRequest = () => {
       });
   }, []);
 
-  const handleApprove = (id) => {
-    // Implement logic to approve the teacher request with the given id
-    console.log(`Approve teacher with ID: ${id}`);
+  const handleApprove = async (id) => {
+    console.log(id);
+ 
   };
+  
+  
 
   const handleReject = (id) => {
     // Implement logic to reject the teacher request with the given id
@@ -37,6 +43,7 @@ const TeacherRequest = () => {
             <th>Title</th>
             <th>Status</th>
             <th>Action</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -49,16 +56,13 @@ const TeacherRequest = () => {
                       <img src={teacher.Images} alt= '' />
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold">{teacher.name}</div>
-                    <div className="text-sm opacity-50">{teacher.category}</div>
-                  </div>
                 </div>
               </td>
               <td>{teacher.category}</td>
               <td>{teacher.name}</td>          
               <td>{teacher.experience}</td>
               <td>{teacher.title}</td>
+              <td>{teacher.status}</td>
               <td>
                 
                     <button
@@ -75,7 +79,7 @@ const TeacherRequest = () => {
                       className="btn btn-danger btn-xs ml-2"
                       onClick={() => handleReject(teacher._id)}
                     >
-                      Reject
+                      Rejects
                     </button>
                     </td>
                   

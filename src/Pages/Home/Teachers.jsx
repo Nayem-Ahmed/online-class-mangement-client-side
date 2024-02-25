@@ -9,29 +9,37 @@ const Teachers = () => {
     return (
         <div>
             <div className='max-w-lg mx-auto mt-16 text-center'>
-                <h1 className='md:text-2xl font-semibold mb-3'>Classes Taught by Real Creators</h1>
+                <h1 className='md:text-3xl font-semibold mb-3'>Classes Taught by Real Creators</h1>
                 <p className='text-gray-500'>Online education is a flexible instructional delivery system that encompasses any kind of learning that takes place via the Internet.</p>
             </div>
-            <div className='grid md:grid-cols-4 gap-3 mt-5 mb-5 p-4 justify-center  '>
-                <div className='teacher-card'>
+            <div className='grid md:grid-cols-4 gap-3 mt-5 mb-5 p-4 justify-center '>
+                <div className='teacher-card shadow-md'>
                     <img className='w-[100%]' src={tphoto} alt="" />
-                    <h1>Dianne Ameter</h1>
-                    <p>Mathematics</p>
+                    <div className='p-3'>
+                        <h1 className='font-medium'>Dianne Ameter</h1>
+                        <p className='text-gray-500'>Web Developer</p>
+                    </div>
                 </div>
-                <div className='teacher-card'>
+                <div className='teacher-card shadow-md'>
                     <img className='w-[100%]' src={tphoto2} alt="" />
-                    <h1>Hugh Saturation</h1>
-                    <p>Social Studies</p>
+                    <div className='p-3'>
+                        <h1 className='font-medium'>Hugh Saturation</h1>
+                        <p className='text-gray-500'>Social Studies</p>
+                    </div>
                 </div>
-                <div className='teacher-card'>
+                <div className='teacher-card shadow-md'>
                     <img className='w-[100%]' src={tphoto3} alt="" />
-                    <h1>Jim Séchen</h1>
-                    <p>Physical Education</p>
+                    <div className='p-3'>
+                        <h1 className='font-medium'>Jim Séchen</h1>
+                        <p className='text-gray-500'>Physical Education</p>
+                    </div>
                 </div>
-                <div className='teacher-card'>
+                <div className='teacher-card shadow-md'>
                     <img className='w-[100%]' src={tphoto4} alt="" />
-                    <h1>Eric Widget</h1>
-                    <p>Illustrator</p>
+                    <div className='p-3'>
+                        <h1 className='font-medium'>Eric Widget</h1>
+                        <p className='text-gray-500'>Illustrator</p>
+                    </div>
                 </div>
             </div>
 

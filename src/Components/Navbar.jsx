@@ -6,13 +6,12 @@ import Headroom from 'react-headroom';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log("current user", user);
     const link = <>
         <li><NavLink className={'font-semibold'} to='/'>Home</NavLink></li>
         <li><NavLink className={'font-semibold'} to='/classes'>All Classes</NavLink></li>
         <li><NavLink className={'font-semibold'} to='/tech'>Teach On BISY</NavLink></li>
         {user?.email ?
-            null
+            ""
             :
             <li><NavLink className={'font-semibold'} to='/signin'>Sign In</NavLink></li>
         }
@@ -20,7 +19,7 @@ const Navbar = () => {
     </>
     return (
         <Headroom>
-        <div className="navbar  bg-blue-400">
+        <div className="navbar bg-blue-400">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,12 +57,12 @@ const Navbar = () => {
 
                         {user?.email ? <li className='mb-3 font-semibold'>{user?.displayName}</li> : null}
                        <Link className='mb-3' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link>
-                        <button onClick={logOut}
+                        {user?.email ?<button onClick={logOut}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                             type="submit"
                         >
                             Sign Out
-                        </button>
+                        </button> : <button><li><Link className={'font-semibold'} to='/signin'>Sign In</Link></li></button> }
                     </ul>
                 </div>
             </div>
