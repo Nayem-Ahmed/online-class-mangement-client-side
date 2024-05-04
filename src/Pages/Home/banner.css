@@ -1,0 +1,22 @@
+/* banner.css */
+
+/* Animation for text */
+.reveal-content {
+    padding: 10px;
+    background: linear-gradient(to right, hsl(0, 100%, 49%) 0, hsl(316, 86%, 46%) 10%, hsl(0, 100%, 100%) 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+    60% {
+        background-position: 600px;
+    }
+    100% {
+        background-position: 650px;
+    }
+}

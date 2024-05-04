@@ -22,13 +22,13 @@ const About = () => {
                 <h1 className='text-3xl font-bold mb-4'>Get Instant Access To Expert solution</h1>
                 <p className='text-gray-500 mb-7'>The ultimate planning solution for busy women who want to reach their personal goals.Effortless comfortable eye-catching unique detail</p>
                 <div className='flex gap-3 items-center'>
-                    <FaCheck ></FaCheck><span className='font-medium'>Powerful Audiance</span>
+                    <FaCheck className='text-blue-500'></FaCheck><span className='font-medium'>Powerful Audiance</span>
                 </div>
                 <div className='flex gap-3 items-center'>
-                    <FaCheck ></FaCheck><span className='font-medium'>Powerful Audiance</span>
+                    <FaCheck className='text-blue-500'></FaCheck><span className='font-medium'>Powerful Audiance</span>
                 </div>
 
-                <div className='flex gap-3 items-center'><FaCheck ></FaCheck><span className='font-medium'>Premium Content Worldwide</span></div>
+                <div className='flex gap-3 items-center'><FaCheck className='text-blue-500'></FaCheck><span className='font-medium'>Premium Content Worldwide</span></div>
                 <Link to='classes'>
                     <button
                         type="submit"

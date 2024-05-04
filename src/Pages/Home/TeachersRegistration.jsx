@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const TeachersRegistration = () => {
     return (
-        <div className='flex gap-6 items-center my-6 p-4 flex-col md:flex-row'>
+        <div className='flex gap-6 items-center my-6 p-5 flex-col md:flex-row'>
             <div className='flex-1'>
                 <img src="https://i.ibb.co/KDKFkjf/instructor-1x-v3.jpg" alt="" />
             </div>

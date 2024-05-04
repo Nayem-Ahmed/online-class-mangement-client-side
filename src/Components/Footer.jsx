@@ -3,11 +3,11 @@ import flogo from '../assets/logo.png'
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-primary text-primary-content">
+        <footer className="footer footer-center p-10  bg-gray-800 text-primary-content">
             <aside>
                  <img src={flogo} alt="" />
-                <p className="font-bold">
-                student and class management  
+                <p className="font-bold text-2xl">
+                Student and Class Management  
                 </p>
                 <p>Copyright © 2023 - All right reserved</p>
             </aside>

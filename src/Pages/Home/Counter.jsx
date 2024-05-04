@@ -7,29 +7,29 @@ import cpho6 from '../../../src/assets/f6.png'
 
 const Counter = () => {
     return (
-        <div className='bg-gray-50 md:p-10 p-6 my-6'>
+        <div className='bg-gray-50 md:p-10 p-5 my-6'>
 
-            <div className='max-w-3xl flex justify-between text-center mx-auto'>
-                <div>
+            <div className='flex justify-between text-center mx-auto'>
+                <div className=''>
                     <button className="btn-lg  bg-white btn-circle  ">
-                        <img className='w-9 text-center mx-auto' src={cpho4} alt="" />
+                        <img className='w-16 text-center mx-auto' src={cpho4} alt="" />
                     </button><br></br>
                     <CountUp className='text-xl font-semibold' delay={2} end={100000} />+
-                    <p>Udacity graduations and <br></br> counting</p>
+                    <p className='mt-4'>Udacity graduations and <br></br> counting</p>
                 </div>
                 <div>
                     <button className="btn-lg  bg-white btn-circle  ">
-                        <img className='w-9 text-center mx-auto' src={cpho} alt="" />
+                        <img className='w-16 text-center mx-auto' src={cpho} alt="" />
                     </button><br></br>
                     <CountUp className='text-xl font-semibold' delay={2} end={300} />+
-                    <p>Industry experts partnering <br></br> to build our content</p>
+                    <p className='mt-4'>Industry experts partnering <br></br> to build our content</p>
                 </div>
                 <div>
                     <button className="btn-lg  bg-white btn-circle  ">
-                        <img className='w-9 text-center mx-auto' src={cpho6} alt="" />
+                        <img className='w-16 text-center mx-auto' src={cpho6} alt="" />
                     </button><br></br>
                     <CountUp className='text-xl font-semibold' delay={2} end={100} />+
-                    <p>Udacity graduations and <br></br> counting</p>
+                    <p className='mt-4'>Udacity graduations and <br></br> counting</p>
                 </div>
             </div>
 
